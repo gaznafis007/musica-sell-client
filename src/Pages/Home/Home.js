@@ -1,9 +1,10 @@
 import React from "react";
+import HeaderBanner from "../../Components/HeaderBanner/HeaderBanner";
 
 const Home = () => {
   return (
     <div>
-      <h2 className="text-red-300 text-2xl">This is home</h2>
+      <HeaderBanner />
     </div>
   );
 };
