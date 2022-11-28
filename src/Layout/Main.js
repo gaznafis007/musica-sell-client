@@ -1,12 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../Components/Footer/Footer";
+import Header from "../Components/Header/Header";
 
 const Main = () => {
   return (
-    <div>
-      <p className="text-7xl text-blue-400 text-center">this is main layout</p>
+    <>
+      <Header />
       <Outlet />
-    </div>
+      <Footer />
+    </>
   );
 };
 
