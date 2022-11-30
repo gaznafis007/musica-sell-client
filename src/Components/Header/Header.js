@@ -33,7 +33,11 @@ const Header = () => {
         <Link to="/">Blog</Link>
       </li>
       <li>
-        {loggedUser?.seller ? <Link>My Products</Link> : <Link>My orders</Link>}
+        {loggedUser[0]?.seller ? (
+          <Link>My Products</Link>
+        ) : (
+          <Link>My orders</Link>
+        )}
       </li>
       <li>
         <Link to="/">My wishlist</Link>

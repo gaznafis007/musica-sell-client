@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
       photoURL: imgUrl,
     });
   };
-  const login = (email, password) => {
+  const logIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     signUp,
     getProfile,
-    login,
+    logIn,
     logout,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
