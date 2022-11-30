@@ -4,6 +4,7 @@ import logInImg from "./log-in.json";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
