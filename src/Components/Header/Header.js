@@ -32,9 +32,7 @@ const Header = () => {
       </li>
     </>
   );
-  if (loading) {
-    return <Spinner></Spinner>;
-  }
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">

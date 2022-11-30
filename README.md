@@ -1,3 +1,32 @@
+# musica Resaleing App
+
+### Google,email authentication
+
+### Single page App
+
+\*\*Deploy at firebase withe a vercel server
+
+# admin info
+
+email : admin@admin.com
+password: 1234567A
+
+# Feature of this app
+
+- This project is a resale app market
+
+- It has Firebase Authentication
+
+- This project UI design with Daisy UI.
+
+- It has Active Route
+
+- Only verified email User can create profile
+
+- It has a strong password suggestion option
+
+- Client site Link: (https://musica-sell.web.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
