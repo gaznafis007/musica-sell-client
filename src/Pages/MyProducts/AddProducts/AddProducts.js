@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
@@ -14,7 +13,7 @@ const AddProducts = () => {
       return data;
     },
   });
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit } = useForm();
   const handleAddProduct = (data, event) => {
     event.preventDefault();
     const image = data.image[0];

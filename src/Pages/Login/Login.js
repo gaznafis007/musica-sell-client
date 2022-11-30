@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import logInImg from "./log-in.json";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -59,9 +59,10 @@ const Login = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <p className="label-text">
+                  Already have an account?{" "}
+                  <Link to="/signup">Register now!</Link>
+                </p>
               </label>
             </div>
             <div className="form-control mt-6">

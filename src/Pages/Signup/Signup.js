@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import signup from "./login.json";
 import { AuthContext } from "../../Context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   //   const imgKey = process.env.REACT_APP_imgKey;
@@ -148,9 +148,9 @@ const Signup = () => {
                 <p className="text-error">{errors?.password?.message}</p>
               )}
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <Link to="/login" className="label-text-alt link link-hover">
+                  Have and Account? Login!
+                </Link>
               </label>
             </div>
             <div className="form-control mt-6">

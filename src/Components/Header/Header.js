@@ -2,27 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import Spinner from "../Spinner/Spinner";
 
 const Header = () => {
   const { user, logout, loading, setLoading } = useContext(AuthContext);
-  const { data: loggedUser, isLoading } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      setLoading(true);
-      const res = await fetch(
-        `http://localhost:5000/users?email=${user?.email}`
-      );
-      const data = res.json();
-      setLoading(false);
-      return data;
-    },
-  });
   const handleLogout = () => {
     logout();
   };
-  if (isLoading) {
-    return <h2 className="text-4xl text-center-text-primary">Loading...</h2>;
-  }
   // console.log(loggedUser[0]);
   const listItems = (
     <>
@@ -33,11 +19,10 @@ const Header = () => {
         <Link to="/blog">Blog</Link>
       </li>
       <li>
-        {loggedUser[0]?.seller ? (
-          <Link to="/myproducts">My products</Link>
-        ) : (
-          <Link to="/myorders">My orders</Link>
-        )}
+        <Link to="/myorders">My orders</Link>
+      </li>
+      <li>
+        <Link to="/myproducts">My Products</Link>
       </li>
       <li>
         <Link to="/">My wishlist</Link>
@@ -48,7 +33,7 @@ const Header = () => {
     </>
   );
   if (loading) {
-    return <h2 className="text-4xl text-center text-primary">Loading...</h2>;
+    return <Spinner></Spinner>;
   }
   return (
     <div className="navbar bg-base-100">
