@@ -26,6 +26,7 @@ const ProductTable = () => {
             <th>Resale Price</th>
             <th>Original Price</th>
             <th>Product Condition</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

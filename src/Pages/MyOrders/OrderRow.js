@@ -7,7 +7,7 @@ const OrderRow = ({ order, idx }) => {
       <th>{idx + 1}</th>
       <td>{name}</td>
       <td>{productName}</td>
-      <td>{price}</td>
+      <td>{price}$</td>
       <td>{address}</td>
     </tr>
   );

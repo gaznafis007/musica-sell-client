@@ -9,6 +9,9 @@ const TableRow = ({ product, idx }) => {
       <td>{product.price}</td>
       <td>{product.originalPrice}</td>
       <td>{product.condition}</td>
+      <td>
+        <button className="btn btn-sm btn-error btn-outline">Delete</button>
+      </td>
     </tr>
   );
 };
