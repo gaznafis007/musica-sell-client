@@ -1,4 +1,5 @@
 import React from "react";
+import BuyNowModal from "./BuyNowModal/BuyNowModal";
 
 const Product = ({ product }) => {
   return (
@@ -13,7 +14,11 @@ const Product = ({ product }) => {
         <p>Original Price: {product.originalPrice}$</p>
         <p>Condition: {product.condition}$</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <label htmlFor="order-modal" className="btn btn-primary">
+            Buy Now
+          </label>
+          <button className="btn btn-primary">Add to Wishlist</button>
+          <BuyNowModal product={product}></BuyNowModal>
         </div>
       </div>
     </div>
