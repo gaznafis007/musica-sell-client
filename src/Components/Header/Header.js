@@ -23,7 +23,7 @@ const Header = () => {
   if (isLoading) {
     return <h2 className="text-4xl text-center-text-primary">Loading...</h2>;
   }
-  console.log(loggedUser[0]);
+  // console.log(loggedUser[0]);
   const listItems = (
     <>
       <li>
@@ -34,7 +34,7 @@ const Header = () => {
       </li>
       <li>
         {loggedUser[0]?.seller ? (
-          <Link>My Products</Link>
+          <Link to="/myproducts">My products</Link>
         ) : (
           <Link>My orders</Link>
         )}
@@ -87,11 +87,11 @@ const Header = () => {
       <div className="navbar-end">
         {user?.uid ? (
           <>
-            <button onClick={handleLogout} className="btn btn-outline mr-2">
+            <button onClick={handleLogout} className="btn btn-outline">
               Logout
             </button>
-            <div className="w-10 rounded-full">
-              <img src={user?.photoURL} alt="profileImg" />
+            <div className="w-10 rounded-full ml-3">
+              <label className="label-text">{user?.displayName}</label>
             </div>
           </>
         ) : (
