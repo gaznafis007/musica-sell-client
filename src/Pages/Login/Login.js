@@ -21,6 +21,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+        // setToken(user);
         navigate(from, { replace: true });
       })
       .catch((err) => {

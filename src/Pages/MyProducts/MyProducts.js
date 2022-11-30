@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 import AddProducts from "./AddProducts/AddProducts";
 import ProductTable from "./ProductTable/ProductTable";
 

@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import signup from "./login.json";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
+import { setToken } from "../../api/token";
 
 const Signup = () => {
   //   const imgKey = process.env.REACT_APP_imgKey;
@@ -59,6 +60,7 @@ const Signup = () => {
             .then((res) => {
               const user = res.user;
               getProfile(name, imgUrl);
+              //   setToken(user);
               const role = data.role;
               console.log(user);
               saveUser(name, email, role, imgUrl);
