@@ -4,15 +4,16 @@ import addMusic from "./add-music.json";
 
 const HeaderBanner = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Lottie animationData={addMusic}></Lottie>
         <div className="lg:w-1/2">
-          <h1 className="text-5xl font-bold">Box Office News!</h1>
+          <h1 className="text-5xl font-bold">
+            Recycle your musical experience!
+          </h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Our world gives you chance to recycle your music experience and
+            gives chance another to share yours....
           </p>
           <button className="btn btn-primary">Get Started</button>
         </div>
