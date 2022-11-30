@@ -6,7 +6,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 
 const AddProducts = () => {
   const { user } = useContext(AuthContext);
-  const { data: categories = [] } = useQuery({
+  const { data: categories = [], refetch } = useQuery({
     queryKey: ["items"],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/items");
@@ -15,7 +15,8 @@ const AddProducts = () => {
     },
   });
   const { register, handleSubmit, formState } = useForm();
-  const handleAddProduct = (data) => {
+  const handleAddProduct = (data, event) => {
+    event.preventDefault();
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -58,6 +59,10 @@ const AddProducts = () => {
             .then((res) => res.json())
             .then((productData) => {
               console.log(productData);
+              if (productData.acknowledged) {
+                event.target.reset();
+                refetch();
+              }
             });
         }
       });

@@ -5,7 +5,7 @@ import TableRow from "./TableRow";
 
 const ProductTable = () => {
   const { user } = useContext(AuthContext);
-  const { data: products = [] } = useQuery({
+  const { data: products = [], refetch } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const res = await fetch(
@@ -31,7 +31,12 @@ const ProductTable = () => {
         </thead>
         <tbody>
           {products.map((product, idx) => (
-            <TableRow product={product} idx={idx} key={product._id}></TableRow>
+            <TableRow
+              product={product}
+              idx={idx}
+              key={product._id}
+              refetch={refetch}
+            ></TableRow>
           ))}
         </tbody>
       </table>
