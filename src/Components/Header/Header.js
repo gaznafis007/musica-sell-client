@@ -1,9 +1,29 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout, loading, setLoading } = useContext(AuthContext);
+  const { data: loggedUser, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      setLoading(true);
+      const res = await fetch(
+        `http://localhost:5000/users?email=${user?.email}`
+      );
+      const data = res.json();
+      setLoading(false);
+      return data;
+    },
+  });
+  const handleLogout = () => {
+    logout();
+  };
+  if (isLoading) {
+    return <h2 className="text-4xl text-center-text-primary">Loading...</h2>;
+  }
+  console.log(loggedUser[0]);
   const listItems = (
     <>
       <li>
@@ -13,7 +33,7 @@ const Header = () => {
         <Link to="/">Blog</Link>
       </li>
       <li>
-        <Link to="/">My orders</Link>
+        {loggedUser?.seller ? <Link>My Products</Link> : <Link>My orders</Link>}
       </li>
       <li>
         <Link to="/">My wishlist</Link>
@@ -23,6 +43,9 @@ const Header = () => {
       </li>
     </>
   );
+  if (loading) {
+    return <h2 className="text-4xl text-center text-primary">Loading...</h2>;
+  }
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -59,7 +82,14 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user?.uid ? (
-          <button>Logout</button>
+          <>
+            <button onClick={handleLogout} className="btn btn-outline mr-2">
+              Logout
+            </button>
+            <div className="w-10 rounded-full">
+              <img src={user?.photoURL} alt="profileImg" />
+            </div>
+          </>
         ) : (
           <>
             <Link to="/login" className="btn btn-sm btn-outline">

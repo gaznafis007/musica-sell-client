@@ -14,13 +14,16 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
-  const signup = (email, password) => {
+  const signUp = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  const getProfile = (displayName) => {
+  const getProfile = (displayName, imgUrl) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, { displayName: displayName });
+    return updateProfile(auth.currentUser, {
+      displayName: displayName,
+      photoURL: imgUrl,
+    });
   };
   const login = (email, password) => {
     setLoading(true);
@@ -42,7 +45,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     setLoading,
-    signup,
+    signUp,
     getProfile,
     login,
     logout,
