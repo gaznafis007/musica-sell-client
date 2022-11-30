@@ -3,10 +3,12 @@ import Lottie from "lottie-react";
 import logInImg from "./log-in.json";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -19,7 +21,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);

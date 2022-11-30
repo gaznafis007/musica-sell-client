@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "../Components/Private/PrivateRoute";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
@@ -23,17 +24,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/products/:name",
-        element: <Products />,
+        element: (
+          <PrivateRoute>
+            <Products />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.name}`),
       },
       {
         path: "/myorders",
-        element: <MyOrders />,
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myproducts",
-        element: <MyProducts />,
+        element: (
+          <PrivateRoute>
+            <MyProducts />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/signup",
