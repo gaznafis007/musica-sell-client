@@ -25,7 +25,7 @@ password: 1234567A
 
 - It has a strong password suggestion option
 
-- Client site Link: (https://musica-sell.web.app/)
+- Client site Link: (https://musica-sell-client.web.app/)
 
 # Getting Started with Create React App
 

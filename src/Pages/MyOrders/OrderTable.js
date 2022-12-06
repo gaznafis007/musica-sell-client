@@ -9,7 +9,7 @@ const OrderTable = () => {
     queryKey: ["orders"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/orders?email=${user?.email}`
+        `https://musica-sell-server.vercel.app/orders?email=${user?.email}`
       );
       const data = res.json();
       return data;

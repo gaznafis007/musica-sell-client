@@ -2,7 +2,7 @@ import React from "react";
 
 const TableRow = ({ product, idx, refetch }) => {
   const handleDeleteProduct = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://musica-sell-server.vercel.app/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

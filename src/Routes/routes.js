@@ -30,7 +30,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.name}`),
+          fetch(
+            `https://musica-sell-server.vercel.app/products/${params.name}`
+          ),
       },
       {
         path: "/myorders",

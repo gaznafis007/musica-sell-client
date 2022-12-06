@@ -8,7 +8,7 @@ const AddProducts = () => {
   const { data: categories = [], refetch } = useQuery({
     queryKey: ["items"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/items");
+      const res = await fetch("https://musica-sell-server.vercel.app/items");
       const data = res.json();
       return data;
     },
@@ -48,7 +48,7 @@ const AddProducts = () => {
             address,
             condition,
           };
-          fetch("http://localhost:5000/products", {
+          fetch("https://musica-sell-server.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",

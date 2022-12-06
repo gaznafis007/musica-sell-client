@@ -6,7 +6,7 @@ const Items = () => {
   const { data: items = [] } = useQuery({
     queryKey: ["items"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/items");
+      const res = await fetch("https://musica-sell-server.vercel.app/items");
       const data = res.json();
       return data;
     },
